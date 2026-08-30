@@ -19,7 +19,6 @@ const StartScreen: React.FC = () => {
       {/* Background decorative circles */}
       <div className="circle circle-one" aria-hidden="true"></div>
       <div className="circle circle-two" aria-hidden="true"></div>
-      <div className="circle circle-three" aria-hidden="true"></div>
 
       {/* Small logo */}
       <div className="app-logo">

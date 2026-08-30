@@ -40,24 +40,18 @@ body {
 }
 
 .circle-one {
-  width: 350px;
-  height: 350px;
-  top: -100px;
+  width: 250px;
+  height: 400px;
+  top: -40px;
   left: 50%;
   transform: translateX(-50%);
 }
+
+
 
 .circle-two {
-  width: 290px;
-  height: 290px;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.circle-three {
   width: 430px;
-  height: 430px;
+  height: 434px;
   top: -50px;
   left: 50%;
   transform: translateX(-50%);

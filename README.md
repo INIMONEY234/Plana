@@ -84,7 +84,7 @@ productivity application and more like a modern social product.
 
 ## Screenshot
 
-![Plana app landing page](plana-screenshot.png)
+![Plana app landing page](src/assets/planaScreenshot.png)
 
 ## Suggested Product Flow
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import logo1 from "../assets/images/logo02.png";
+import Logo02 from "../assets/images/Logo02.png";
 
 import "../assets/styles/StartScreen.css";
 
@@ -23,7 +23,7 @@ const StartScreen: React.FC = () => {
 
       {/* Small logo */}
       <div className="app-logo">
-        <img src={logo1} alt="App Logo" />
+        <img src={Logo02} alt="App Logo" />
       </div>
 
       {/* Event Cards */}

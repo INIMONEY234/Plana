@@ -1,0 +1,405 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.start-screen {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  height: 100vh;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 44px;
+  overflow: hidden;
+  background: #1d1d1d;
+  color: #ffffff;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+/* =========================================
+   BACKGROUND CIRCLES
+========================================= */
+
+.circle {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.circle-one {
+  width: 350px;
+  height: 350px;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.circle-two {
+  width: 290px;
+  height: 290px;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.circle-three {
+  width: 430px;
+  height: 430px;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* =========================================
+   APP LOGO
+========================================= */
+
+.app-logo {
+  position: relative;
+  z-index: 5;
+  margin-left: 21px;
+  margin-top: 5px;
+  width: 44px;
+  height: 44px;
+}
+
+.app-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* =========================================
+   EVENT CARDS
+========================================= */
+
+.event-wrapper {
+  position: relative;
+
+  width: 100%;
+  height: 290px;
+
+  margin-top: 34px;
+}
+
+.event-card {
+  position: absolute;
+
+  overflow: hidden;
+
+  border: 2px solid #ffffff;
+  border-radius: 30px;
+
+  background: #333333;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+
+  transition: transform 0.3s ease;
+}
+
+.event-card img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+/* Left */
+
+.event-card-left {
+  width: 179px;
+  height: 231px;
+  left: 25px;
+  top: 17px;
+  transform: rotate(-10deg);
+  z-index: 1;
+}
+
+.event-card-left::after,
+.event-card-right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Right */
+
+.event-card-right {
+  width: 179px;
+  height: 231px;
+  right: 24px;
+  top: 17px;
+  transform: rotate(10deg);
+  z-index: 1;
+}
+
+.event-card-right::after {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Main */
+
+.event-card-main {
+  width: 203px;
+  height: 262px;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  border-radius: 29px;
+  z-index: 3;
+}
+
+.event-card-main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.02) 30%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+
+  pointer-events: none;
+}
+
+.event-overlay {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+
+  height: 50px;
+
+  display: grid;
+
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 18px 28px;
+
+  align-items: center;
+}
+
+.event-location,
+.event-day {
+  font-size: 9px;
+  font-weight: 400;
+
+  color: #ffffff;
+}
+
+.event-location {
+  text-align: left;
+}
+
+.event-day {
+  text-align: right;
+}
+
+.event-title {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+
+  align-self: end;
+}
+
+.event-date {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 700;
+
+  text-align: right;
+  align-self: end;
+}
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.splash-content {
+  position: relative;
+  z-index: 5;
+
+  padding: 0 28px;
+
+  margin-top: 67px;
+
+  text-align: center;
+}
+
+.eyebrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  margin-bottom: 14px;
+
+  color: #858585;
+
+  font-size: 9px;
+  line-height: 12px;
+  font-weight: 500;
+
+  letter-spacing: 0.2px;
+}
+
+.eyebrow-icon {
+  font-size: 9px;
+  color: #777777;
+}
+
+.splash-content h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 25px;
+  line-height: 1.28;
+
+  font-weight: 750;
+
+  letter-spacing: -0.8px;
+}
+
+.splash-content h1 span {
+  color: #2196e8;
+}
+
+.splash-content p {
+  margin: 12px 0 0;
+
+  color: #8f8f8f;
+
+  font-size: 10px;
+  line-height: 16px;
+
+  font-weight: 500;
+}
+
+/* =========================================
+   SIGN UP BUTTON
+========================================= */
+
+.signup-button {
+  width: 100%;
+  height: 38px;
+
+  margin-top: 19px;
+
+  border: none;
+  border-radius: 22px;
+
+  background: #39a6ef;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.signup-button:hover {
+  background: #ffffff;
+  color: #2699e3;
+  box-shadow: 0 5px 20px rgba(57, 166, 239, 0.25);
+}
+
+.signup-button:active {
+  transform: scale(0.98);
+}
+
+/* =========================================
+   LOGIN
+========================================= */
+
+.login-text {
+  margin-top: 20px;
+  margin-bottom: 0;
+  color: #777777;
+  font-size: 10px;
+  line-height: 15px;
+}
+
+.login-text a {
+  color: #42aaf0;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login-text a:hover {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (min-width: 500px) {
+  .start-screen {
+    border: 1px solid #555555;
+  }
+}
+
+@media (max-width: 360px) {
+  .event-wrapper {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+
+  .splash-content {
+    margin-top: 25px;
+  }
+
+  .splash-content h1 {
+    font-size: 23px;
+  }
+}
+
+@media (max-height: 700px) {
+  .start-screen {
+    padding-bottom: 20px;
+  }
+
+  .app-logo {
+    margin-top: 2px;
+  }
+
+  .event-wrapper {
+    margin-top: 20px;
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+
+  .splash-content {
+    margin-top: 30px;
+  }
+}

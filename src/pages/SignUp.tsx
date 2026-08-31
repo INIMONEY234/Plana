@@ -26,8 +26,8 @@ const SignUp: React.FC<SignUpProps> = ({ onGoogle, onApple, onEmail, avatarUrl }
 
   return (
     <div className="signup-sheet">
-      <div className="signup-handle" />
-
+      
+      
       <div className="signup-top">
         <button
           type="button"

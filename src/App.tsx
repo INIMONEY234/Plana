@@ -1,23 +1,24 @@
-import { useEffect, useState } from "react";
-import SplashScreen from "./pages/SplashScreen";
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
 import StartScreen from "./pages/StartScreen";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
+// import EmailSignUp from "./pages/EmailSignUp";
 
-function App() {
-  const [showSplash, setShowSplash] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSplash(false);
-    }, 2500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (showSplash) {
-    return <SplashScreen />;
-  }
-
-  return <StartScreen />;
-}
+const App: React.FC = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<StartScreen />} />
+        <Route path="/startscreen" element={<Navigate to="/" replace />} />
+        <Route path="/signup" element={<SignUp />} />
+        {/* <Route path="/signup/email" element={<EmailSignUpPage />} />  */}
+        <Route path="/login" element={<Login />} /> 
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
 export default App;

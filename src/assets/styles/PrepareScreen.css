@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   max-width: 380px;
+  min-height: 100vh;
   margin: 0 auto;
   background: #3a3a3d;
   border-radius: 28px;
@@ -11,6 +12,7 @@
     Helvetica, Arial, sans-serif;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
 }
@@ -51,6 +53,8 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  flex: 1;
+  justify-content: space-evenly;
 }
 
 .prepare-account {

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Popup from "../components/Popup";
 import "../assets/styles/Login.css";
 
 interface LoginProps {
@@ -9,29 +8,29 @@ interface LoginProps {
   onLogin?: (email: string, password: string) => void;
 }
 
-const getNameFromEmail = (email: string) => {
-  const localPart = email.split("@")[0];
-  return localPart
-    .split(/[._-]+/)
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(" ");
-};
+const isValidEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
 const Login: React.FC<LoginProps> = ({ onGoogle, onForgotPassword, onLogin }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPopup, setShowPopup] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onLogin?.(email, password);
-    setShowPopup(true);
-  };
 
-  const handleContinue = () => {
-    setShowPopup(false);
+    if (!isValidEmail(email)) {
+      setError("Enter a valid email address.");
+      return;
+    }
+
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters.");
+      return;
+    }
+
+    setError("");
+    onLogin?.(email, password);
     navigate("/start-link");
   };
 
@@ -39,8 +38,6 @@ const Login: React.FC<LoginProps> = ({ onGoogle, onForgotPassword, onLogin }) =>
     onGoogle?.();
     navigate("/prepare");
   };
-
-  const displayName = email ? getNameFromEmail(email) : "back";
 
   return (
     <div className="login-sheet">
@@ -70,14 +67,13 @@ const Login: React.FC<LoginProps> = ({ onGoogle, onForgotPassword, onLogin }) =>
 
         <div className="login-eyebrow">NEEDS A VENUE</div>
 
-        <form className="login-form" onSubmit={handleSubmit}>
+        <form className="login-form" onSubmit={handleSubmit} noValidate>
           <input
             type="email"
             className="login-input"
             placeholder="Email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
 
           <input
@@ -86,8 +82,9 @@ const Login: React.FC<LoginProps> = ({ onGoogle, onForgotPassword, onLogin }) =>
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
+
+          {error && <p className="login-error">{error}</p>}
 
           <button type="submit" className="login-submit">
             Login
@@ -126,16 +123,6 @@ const Login: React.FC<LoginProps> = ({ onGoogle, onForgotPassword, onLogin }) =>
           <span className="login-google-label">Continue with Google</span>
         </button>
       </div>
-
-      {showPopup && (
-        <Popup
-          emoji="👋"
-          title={`Welcome, ${displayName}!`}
-          message="Great to have you back. Let's get everything set up."
-          buttonLabel="Continue"
-          onContinue={handleContinue}
-        />
-      )}
     </div>
   );
 };

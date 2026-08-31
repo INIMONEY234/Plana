@@ -14,9 +14,17 @@ const SignUp: React.FC<SignUpProps> = ({ onGoogle, onApple, onEmail, avatarUrl }
   const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
 
-  const completeSignUp = (callback?: () => void) => {
+  const handleSocialSignUp = (callback?: () => void) => {
     callback?.();
     setShowPopup(true);
+  };
+
+  const handleEmailSignUp = () => {
+    if (onEmail) {
+      onEmail();
+    } else {
+      navigate("/prepare");
+    }
   };
 
   const handleContinue = () => {
@@ -26,8 +34,8 @@ const SignUp: React.FC<SignUpProps> = ({ onGoogle, onApple, onEmail, avatarUrl }
 
   return (
     <div className="signup-sheet">
-      
-      
+      <div className="signup-handle" />
+
       <div className="signup-top">
         <button
           type="button"
@@ -63,7 +71,7 @@ const SignUp: React.FC<SignUpProps> = ({ onGoogle, onApple, onEmail, avatarUrl }
           <button
             type="button"
             className="signup-btn"
-            onClick={() => completeSignUp(onGoogle)}
+            onClick={() => handleSocialSignUp(onGoogle)}
           >
             <span className="signup-icon">
               <svg viewBox="0 0 48 48" width="18" height="18" aria-hidden="true">
@@ -91,7 +99,7 @@ const SignUp: React.FC<SignUpProps> = ({ onGoogle, onApple, onEmail, avatarUrl }
           <button
             type="button"
             className="signup-btn"
-            onClick={() => completeSignUp(onApple)}
+            onClick={() => handleSocialSignUp(onApple)}
           >
             <span className="signup-icon">
               <svg viewBox="0 0 384 512" width="16" height="16" aria-hidden="true">
@@ -105,11 +113,7 @@ const SignUp: React.FC<SignUpProps> = ({ onGoogle, onApple, onEmail, avatarUrl }
           </button>
         </div>
 
-        <button
-          type="button"
-          className="signup-email"
-          onClick={() => completeSignUp(onEmail)}
-        >
+        <button type="button" className="signup-email" onClick={handleEmailSignUp}>
           Sign up with Email
         </button>
       </div>

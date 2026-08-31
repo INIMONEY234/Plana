@@ -163,3 +163,10 @@
 .login-google-label {
   line-height: 1;
 }
+
+.login-error {
+  margin: -4px 0 4px;
+  font-size: 13px;
+  color: #e0453c;
+  text-align: left;
+}

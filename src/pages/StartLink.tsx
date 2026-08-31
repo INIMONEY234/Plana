@@ -10,7 +10,7 @@ interface StartLinkProps {
 }
 
 const StartLink: React.FC<StartLinkProps> = ({
-  redirectTo = "/home",
+  redirectTo = "/interests",
   durationMs = 3000,
 }) => {
   const navigate = useNavigate();

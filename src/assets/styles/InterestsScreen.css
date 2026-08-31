@@ -1,0 +1,127 @@
+.interests-sheet {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background: #f2f2f2;
+  box-sizing: border-box;
+  padding: 20px 20px 28px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.interests-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.interests-logo {
+  display: flex;
+  align-items: center;
+}
+
+.interests-logo-img {
+  display: block;
+}
+
+.interests-skip {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a1a;
+  cursor: pointer;
+}
+
+.interests-skip:hover {
+  color: #555555;
+}
+
+.interests-body {
+  flex: 1;
+}
+
+.interests-title {
+  margin: 0 0 10px;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #111111;
+}
+
+.interests-subtitle {
+  margin: 0 0 22px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #7a7a7a;
+  max-width: 320px;
+}
+
+.interests-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.interests-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.interests-chip {
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: none;
+  background: #e6e6e6;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.interests-chip:hover {
+  background: #dcdcdc;
+}
+
+.interests-chip:active {
+  transform: scale(0.97);
+}
+
+.interests-chip--active {
+  background: #8fc9f4;
+  color: #ffffff;
+}
+
+.interests-chip--active:hover {
+  background: #7bbdef;
+}
+
+.interests-footer {
+  padding-top: 16px;
+}
+
+.interests-continue {
+  width: 100%;
+  padding: 16px;
+  border-radius: 999px;
+  border: none;
+  background: #8fc9f4;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background 0.15s ease;
+}
+
+.interests-continue:hover {
+  background: #7bbdef;
+}

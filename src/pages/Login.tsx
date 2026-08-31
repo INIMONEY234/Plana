@@ -41,7 +41,6 @@ const Login: React.FC<LoginProps> = ({ onGoogle, onForgotPassword, onLogin }) =>
 
   return (
     <div className="login-sheet">
-      <div className="login-handle" />
 
       <button
         type="button"
